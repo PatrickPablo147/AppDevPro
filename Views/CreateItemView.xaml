@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="AppDevPro.Views.CreateItemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:AppDevPro.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
+
+    <Grid Background="#fff">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="10 5 0 0">
+            <Grid Margin="0 35">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="185.6"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border BorderThickness="1" BorderBrush="#acb0af" VerticalAlignment="Top" Margin="30,2,0,10" CornerRadius="5" HorizontalAlignment="Left" Width="150" Height="38">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock x:Name="textTitle" MouseDown="textTitle_MouseDown" Text="Title Name" Style="{StaticResource textHint}"/>
+                        <TextBox x:Name="txtTitle" TextChanged="txtTitle_TextChanged" Style="{StaticResource textBox}"/>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="1" BorderThickness="1" BorderBrush="#acb0af" VerticalAlignment="Top" Margin="30,2,0,10" CornerRadius="5" HorizontalAlignment="Left" Width="150" Height="38">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock x:Name="textSubject" MouseDown="textSubject_MouseDown" Text="Subject" Style="{StaticResource textHint}"/>
+                        <TextBox x:Name="txtSubject" TextChanged="txtSubject_TextChanged" Style="{StaticResource textBox}"/>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="2" BorderThickness="1" BorderBrush="#acb0af" VerticalAlignment="Top" Margin="30,2,0,0" CornerRadius="5" HorizontalAlignment="Left" Width="150" Height="38">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock x:Name="textKeyword" MouseDown="textKeyword_MouseDown" Text="Enter Keyword" Style="{StaticResource textHint}"/>
+                        <TextBox x:Name="txtKeyword" TextChanged="txtKeyword_TextChanged" Style="{StaticResource textBox}"/>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="2" Grid.Column="1" BorderThickness="1" BorderBrush="#acb0af" Margin="10,2,30,2" CornerRadius="5">
+                    <Grid Margin="7 9" Height="80">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock x:Name="textInformation" MouseDown="textInformation_MouseDown" Text="Add information ..." Style="{StaticResource textHint}"/>
+                        <TextBox x:Name="txtInformation" TextChanged="txtInformation_TextChanged" Style="{StaticResource textBox}"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Margin="0 5 10 0">
+            <Button Width="100" Height="45"  HorizontalAlignment="Right" Margin="0 0 20 4" Content="Add" Click="AddButton_Click" Style="{StaticResource mainbutton}"/>
+            <Button Width="100" Height="45" HorizontalAlignment="Right" Margin="0 -50 130 0" Content="Delete" Click="DeleteButton_Click" Style="{StaticResource mainbutton}"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,74 @@
+﻿<Window x:Class="AppDevPro.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:AppDevPro"
+        mc:Ignorable="d"
+        Height="720" Width="1130"
+        WindowStartupLocation="CenterScreen" AllowsTransparency="True"
+        WindowStyle="None" Background="Transparent">
+    
+    <Grid MouseDown="Grid_MouseDown" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Menu Panel-->
+        <Border Background="#f4f4f4" CornerRadius="30 0 0 30" BorderThickness="0 0 1 0" BorderBrush="#d9d9d9">
+            <Grid>
+                <!--Top Button-->
+                <Button Style="{StaticResource menuButtonTop}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5" Opacity="0.1"/>
+                    </Button.Effect>
+                    <TextBlock Text="Sz" FontSize="20" FontWeight="SemiBold" Margin="0 0 0 2" Foreground="#ff869e"/>
+                </Button>
+
+                <!--Menu Button-->
+                <StackPanel VerticalAlignment="Center">
+                    <Button Style="{StaticResource menuButton}" Command="{Binding UpdateViewCommand}" CommandParameter="TableList">
+                        <fa:ImageAwesome Icon="Book" Style="{StaticResource menuButtonIcon}"/>
+                    </Button>
+
+                    <Button Style="{StaticResource menuButton}" Command="{Binding UpdateViewCommand}" CommandParameter="Quiz">
+                        <fa:ImageAwesome Icon="PuzzlePiece" Style="{StaticResource menuButtonIcon}"/>
+                    </Button>
+
+                    <Button Style="{StaticResource menuButton}" Command="{Binding UpdateViewCommand}" CommandParameter="CreateNewItem">
+                        <fa:ImageAwesome Icon="Pencil" Style="{StaticResource menuButtonIcon}"/>
+                    </Button>
+
+                    <Button Style="{StaticResource menuButton}" Command="{Binding UpdateViewCommand}" CommandParameter="Setting">
+                        <fa:ImageAwesome Icon="Cog" Style="{StaticResource menuButtonIcon}"/>
+                    </Button>
+                </StackPanel>
+
+                <!--Bottom Button-->
+                <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" Margin="0 0 0 15">
+                    <fa:ImageAwesome Icon="PowerOff" Style="{StaticResource menuButtonIcon}"/>
+                </Button>
+            </Grid>
+        </Border>
+        
+        <!--Main Section-->
+        <Border Grid.Column="1" Background="#fff" CornerRadius="0 30 30 0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <materialDesign:PackIcon Kind="Close" VerticalAlignment="Top" Width="25" Height="25" HorizontalAlignment="Right" Opacity="0.6" Margin="0 4 30 0" MouseDown="Close_MouseDown"/>
+
+                <ContentControl Grid.Row="1" Margin="10" Content="{Binding SelectedViewModel}"/>
+            </Grid>
+        </Border>
+        <!--Content Panel-->
+        
+        
+    </Grid>
+</Window>
